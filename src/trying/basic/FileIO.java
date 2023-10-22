@@ -1,4 +1,3 @@
-package trying;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -15,8 +14,8 @@ public class FileIO {
             //String filePath = "C:/Users/pd681898/Downloads/Data.zip/Data/Clean Transcripts/CAR0001.txt";
             BufferedReader reader = new BufferedReader(new FileReader("CAR0001.txt"));
             
-            String[] doc = new String[5];
-            String[] patient = new String[5];
+            String[] doc = new String[6];
+            String[] patient = new String[6];
             
             String line;
             char firstChar;
@@ -32,16 +31,17 @@ public class FileIO {
                     if (firstChar == 'P') {
                        patient[p] = line ;
                        System.out.println(line);
-                       if(p ==4) break;
+                       if(p >= 4) break;
                        p++;
-                       // Exit the loop if 'P' is found
+                       
+                                              // Exit the loop if 'P' is found
                     }
                     
                     else {
                     	
                     	doc[d] = line;
                     	System.out.println(line);
-                    	if(d ==4) break;
+                    	if(d >= 5) break;
                     	d++;
                      }
 

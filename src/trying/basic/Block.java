@@ -1,9 +1,6 @@
-package trying.basic;
 import java.security.spec.ECGenParameterSpec;
-
 import java.security.*;
 import java.util.Arrays;
-import trying.FileIO;
 public class Block {
 
     private String PreviousHash;
@@ -11,7 +8,7 @@ public class Block {
     private String[] data;
     private KeyPair keyPair;
     private FileIO dataset;
-     ECDSADemo encryption = new ECDSADemo();
+    private ECDSADemo encryption; 
      
      public Block(String[] data) {
     	 
