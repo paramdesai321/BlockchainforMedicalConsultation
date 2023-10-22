@@ -4,7 +4,7 @@ import java.util.Arrays;
 public class Block {
 
     private String PreviousHash;
-    private String BlockHash;
+    public String BlockHash;
     private String[] data;
     private KeyPair keyPair;
     private FileIO dataset;

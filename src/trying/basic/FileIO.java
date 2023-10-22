@@ -8,7 +8,6 @@ public class FileIO {
 	
 	public String[] doc = new String[5];
     public String[] patient = new String[5];
-
     public static void main(String[] args) {
         try {
             //String filePath = "C:/Users/pd681898/Downloads/Data.zip/Data/Clean Transcripts/CAR0001.txt";
@@ -49,6 +48,9 @@ public class FileIO {
                 }
                 
             }
+            Block block1 = new Block(patient);
+            Block block2 = new Block(block1.BlockHash,doc);
+
             
             
             
