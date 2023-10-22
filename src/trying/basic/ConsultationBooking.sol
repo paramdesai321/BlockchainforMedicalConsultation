@@ -49,7 +49,7 @@ contract ConsultationBooking {
     }
 
     function bookConsultaion() external payable onlyPatient consultationNotStarted {
-    require(msg.value == consultationFee, "Incorrect consultation fee");
+    require(msg.value == consultationFee*1 wei, "Incorrect consultation fee");
 
     // Remove this line as patient is already set in the constructor
     // patient = msg.sender;
@@ -82,4 +82,6 @@ contract ConsultationBooking {
     receive() external payable {
         revert("Use the bookConsultation function to initiate the consultation");
     }
+
+    
 }
