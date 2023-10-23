@@ -1,4 +1,4 @@
-package trying.basic;
+
 import java.security.spec.ECGenParameterSpec;
 import java.security.*;
 import java.security.spec.InvalidKeySpecException;
@@ -6,11 +6,11 @@ import java.security.spec.X509EncodedKeySpec;
 
 
 import java.util.Arrays;
-import trying.FileIO;
+
 public class Block {
 
     private String PreviousHash;
-    private String BlockHash;
+    public String BlockHash;
     public static String[] data;
    public static KeyPair keyPair;
     private FileIO dataset;
