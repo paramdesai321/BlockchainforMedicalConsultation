@@ -4,13 +4,13 @@ import java.security.*;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
 
+import java.util.List;
+import java.util.ArrayList;
 
-import java.util.Arrays;
-import trying.FileIO;
 public class Block {
 
     private String PreviousHash;
-    private String BlockHash;
+    public String BlockHash;
     public static String[] data;
    public static KeyPair keyPair;
     private FileIO dataset;
@@ -122,20 +122,26 @@ public class Block {
    
 
     public static void main(String[] args) {
-        String[] list1 = {"Paris", "France"};
-        String[] list2 = {"Berlin", "Germany"};
+         String[] messages = FileIO.getMessage(); // Implement this method in FileIO
 
-        // Create blocks
-        
-        
-        
-       
-        
+        // Create an empty list to store blocks (your blockchain)
+        List<Block> blockchain = new ArrayList<>();
 
-        // Verify blocks
-        /*
-        System.out.println("Block 1 verification: " + block1.verifyBlock());
-        System.out.println("Block 2 verification: " + block2.verifyBlock());
-        */
+        // Create the genesis block using the messages
+        Block genesisBlock = new Block(null, messages);
+        blockchain.add(genesisBlock);
+
+        // Create and add additional blocks to the blockchain (if needed)
+
+        // Verify and print the blockchain
+        for (int i = 0; i < blockchain.size(); i++) {
+            Block currentBlock = blockchain.get(i);
+            System.out.println("Block #" + i);
+            System.out.println("Previous Hash: " + currentBlock.PreviousHash);
+            System.out.println("Block Hash: " + currentBlock.BlockHash);
+            System.out.println("Data: " + String.join(", ", currentBlock.data));
+            System.out.println("Is Valid: " + currentBlock.verifyBlock());
+            System.out.println();
+        }
     }
 }

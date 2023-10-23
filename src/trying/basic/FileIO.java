@@ -6,10 +6,14 @@ import java.io.IOException;
 import java.util.Arrays;
 public class FileIO {
 	
-	public String[] doc = new String[5];
-    public String[] patient = new String[5];
+	public static String[] doc = new String[5];
+    public static String[] patient = new String[5];
     public static void main(String[] args) {
-        try {
+        
+    
+   }
+   public static String[] getMessage(){
+   try {
             //String filePath = "C:/Users/pd681898/Downloads/Data.zip/Data/Clean Transcripts/CAR0001.txt";
             BufferedReader reader = new BufferedReader(new FileReader("CAR0001.txt"));
             
@@ -37,19 +41,18 @@ public class FileIO {
                     }
                     
                     else {
-                    	
-                    	doc[d] = line;
-                    	System.out.println(line);
-                    	if(d >= 5) break;
-                    	d++;
+                        
+                        doc[d] = line;
+                        System.out.println(line);
+                        if(d >= 5) break;
+                        d++;
                      }
 
                    
                 }
                 
             }
-            Block block1 = new Block(patient);
-            Block block2 = new Block(block1.BlockHash,doc);
+            
 
             
             
@@ -62,6 +65,6 @@ public class FileIO {
         } catch (IOException e) {
             System.err.println("Error reading the file: " + e.getMessage());
         }
+        return patient;
     }
-    
-   }
+}
