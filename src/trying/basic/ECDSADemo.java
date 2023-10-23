@@ -1,4 +1,5 @@
 
+package trying.basic;
 
 import java.security.*;
 import java.security.spec.ECGenParameterSpec;
@@ -10,7 +11,11 @@ public class ECDSADemo {
  	static String publickey;
  	
     public static void main(String[] args) {
-    	publickey.verify();
+    	
+    	
+    	
+    	
+    	
     	/*
         try {
             // Generate key pair
@@ -44,10 +49,21 @@ public class ECDSADemo {
 
     public static KeyPair generateKeyPair(String[] dataArray, String previousHash) throws NoSuchAlgorithmException, InvalidAlgorithmParameterException {
         // Combine all strings in the array 
-        StringBuilder combinedDataBuilder = new StringBuilder(previousHash);
-        for (String data : dataArray) {
-            combinedDataBuilder.append(data);
+     
+        
+        StringBuilder combinedDataBuilder = new StringBuilder();
+
+        // Check if previousHash is not null before appending
+        if (previousHash != null) {
+            combinedDataBuilder.append(previousHash);
         }
+
+        for (String data : dataArray) {
+            if (data != null) {
+                combinedDataBuilder.append(data);
+            }
+        }
+
         String combinedData = combinedDataBuilder.toString();
 
         KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("EC");
@@ -57,23 +73,25 @@ public class ECDSADemo {
         // Pass combined data as additional input
         SecureRandom secureRandom = new SecureRandom(combinedData.getBytes());
         keyPairGenerator.initialize(ecGenParameterSpec, secureRandom);
-        
 
         return keyPairGenerator.generateKeyPair();
-        
     }
+
     // Sign a message using the private key
     public static byte[] sign(String[] messages, PrivateKey privateKey)
             throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
         Signature ecdsaSignature = Signature.getInstance("SHA256withECDSA");
         ecdsaSignature.initSign(privateKey);
-        
+
         for (String message : messages) {
-            ecdsaSignature.update(message.getBytes());
+            if (message != null) {
+                ecdsaSignature.update(message.getBytes());
+            }
         }
-        
+
         return ecdsaSignature.sign();
     }
+
 
     //  som
 
@@ -85,7 +103,9 @@ public class ECDSADemo {
         ecdsaSignature.initVerify(publicKey);
         
         for (String message : messages) {
+        	if(message != null) {
             ecdsaSignature.update(message.getBytes());
+        }
         }
         
         return ecdsaSignature.verify(signature);

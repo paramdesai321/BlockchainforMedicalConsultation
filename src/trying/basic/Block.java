@@ -1,12 +1,13 @@
-
+package trying.basic;
 import java.security.spec.ECGenParameterSpec;
 import java.security.*;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
-
-import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
+import trying.FileIO;
 public class Block {
 
     private String PreviousHash;
@@ -15,6 +16,7 @@ public class Block {
    public static KeyPair keyPair;
     private FileIO dataset;
      ECDSADemo encryption = new ECDSADemo();
+     
      
      public Block(String[] data) {
     	 
@@ -42,12 +44,8 @@ public class Block {
         this.PreviousHash = PreviousHash;
         this.data= data;
        
-   
-        
-        
-    
-        
-        try {
+        if(PreviousHash == null) System.out.println("This is not a Gensis Block, the previous hash should not be null");
+           try {
 			keyPair = ECDSADemo.generateKeyPair(data,PreviousHash);
 		} catch (NoSuchAlgorithmException e) {
 			// TODO Auto-generated catch block
@@ -64,7 +62,7 @@ public class Block {
     }
     
     
-    public List<Block> addBlock(Block newBlock) throws InvalidKeySpecException {
+    public void addBlock(Block newBlock) throws InvalidKeySpecException {
         try {
             // Generate key pair for the new block
             try {
@@ -80,13 +78,13 @@ public class Block {
             // Verify the signature of the previous block
             if (!this.verifyBlock()) {
                 System.out.println("Error: Previous block's signature verification failed.");
-                return null;
+                return;
             }
 
             // Verify the signature of the new block
             if (!ECDSADemo.verify(newBlock.data, signature, newBlock.keyPair.getPublic())) {
                 System.out.println("Error: New block's signature verification failed.");
-                return null;
+                return;
             }
 
             // Add the new block to the blockchain
@@ -95,7 +93,6 @@ public class Block {
         } catch (NoSuchAlgorithmException | InvalidKeyException | SignatureException e) {
             e.printStackTrace();
         }
-        return null;
     }
 
 
@@ -114,22 +111,19 @@ public class Block {
         }
     }
 
-    
-   
-    
-
   
 
    
 
+
     public static void main(String[] args) {
-         String[] data = FileIO.getData(); // Implement this method in FileIO
+         String[] messages = FileIO.getMessage(); // Implement this method in FileIO
 
         // Create an empty list to store blocks (your blockchain)
         List<Block> blockchain = new ArrayList<>();
-
+        
         // Create the genesis block using the messages
-        Block genesisBlock = new Block(null, data);
+        Block genesisBlock = new Block(messages);
         blockchain.add(genesisBlock);
 
         // Create and add additional blocks to the blockchain (if needed)
@@ -140,7 +134,7 @@ public class Block {
             System.out.println("Block #" + i);
             System.out.println("Previous Hash: " + currentBlock.PreviousHash);
             System.out.println("Block Hash: " + currentBlock.BlockHash);
-            System.out.println("Data: " + String.join(", ", currentBlock.data));
+            System.out.println("Data: " + String.join("\n", Block.data));
             System.out.println("Is Valid: " + currentBlock.verifyBlock());
             System.out.println();
         }
