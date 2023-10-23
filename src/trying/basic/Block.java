@@ -1,4 +1,4 @@
-package trying.basic;
+
 import java.security.spec.ECGenParameterSpec;
 import java.security.*;
 import java.security.spec.InvalidKeySpecException;
@@ -6,8 +6,6 @@ import java.security.spec.X509EncodedKeySpec;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import trying.FileIO;
 public class Block {
 
     private String PreviousHash;
@@ -117,16 +115,19 @@ public class Block {
 
 
     public static void main(String[] args) {
-         String[] messages = FileIO.getMessage(); // Implement this method in FileIO
-
+         String[] pmessages1 = FileIO.getPatientMessage(); // Implement this method in FileIO
+         String[] dmessages1 = FileIO.getDoctorMessage();
         // Create an empty list to store blocks (your blockchain)
         List<Block> blockchain = new ArrayList<>();
         
         // Create the genesis block using the messages
-        Block genesisBlock = new Block(messages);
+        Block genesisBlock = new Block(pmessages1);
         blockchain.add(genesisBlock);
 
-        // Create and add additional blocks to the blockchain (if needed)
+        Block Block1 = new Block(genesisBlock.PreviousHash,dmessages1);
+        blockchain.add(Block1);
+
+        // Create and add add itional blocks to the blockchain (if needed)
 
         // Verify and print the blockchain
         for (int i = 0; i < blockchain.size(); i++) {
@@ -135,7 +136,7 @@ public class Block {
             System.out.println("Previous Hash: " + currentBlock.PreviousHash);
             System.out.println("Block Hash: " + currentBlock.BlockHash);
             System.out.println("Data: " + String.join("\n", Block.data));
-            System.out.println("Is Valid: " + currentBlock.verifyBlock());
+            System.out.println("Block Verficiation: " + currentBlock.verifyBlock());
             System.out.println();
         }
     }
