@@ -64,7 +64,7 @@ public class Block {
     }
     
     
-    public void addBlock(Block newBlock) throws InvalidKeySpecException {
+    public List<Block> addBlock(Block newBlock) throws InvalidKeySpecException {
         try {
             // Generate key pair for the new block
             try {
@@ -80,13 +80,13 @@ public class Block {
             // Verify the signature of the previous block
             if (!this.verifyBlock()) {
                 System.out.println("Error: Previous block's signature verification failed.");
-                return;
+                return null;
             }
 
             // Verify the signature of the new block
             if (!ECDSADemo.verify(newBlock.data, signature, newBlock.keyPair.getPublic())) {
                 System.out.println("Error: New block's signature verification failed.");
-                return;
+                return null;
             }
 
             // Add the new block to the blockchain
@@ -95,6 +95,7 @@ public class Block {
         } catch (NoSuchAlgorithmException | InvalidKeyException | SignatureException e) {
             e.printStackTrace();
         }
+        return null;
     }
 
 
@@ -122,13 +123,13 @@ public class Block {
    
 
     public static void main(String[] args) {
-         String[] messages = FileIO.getMessage(); // Implement this method in FileIO
+         String[] data = FileIO.getData(); // Implement this method in FileIO
 
         // Create an empty list to store blocks (your blockchain)
         List<Block> blockchain = new ArrayList<>();
 
         // Create the genesis block using the messages
-        Block genesisBlock = new Block(null, messages);
+        Block genesisBlock = new Block(null, data);
         blockchain.add(genesisBlock);
 
         // Create and add additional blocks to the blockchain (if needed)

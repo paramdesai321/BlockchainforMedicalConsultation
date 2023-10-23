@@ -12,7 +12,7 @@ public class FileIO {
         
     
    }
-   public static String[] getMessage(){
+   public static String[] getData(){
    try {
             //String filePath = "C:/Users/pd681898/Downloads/Data.zip/Data/Clean Transcripts/CAR0001.txt";
             BufferedReader reader = new BufferedReader(new FileReader("CAR0001.txt"));
@@ -65,6 +65,6 @@ public class FileIO {
         } catch (IOException e) {
             System.err.println("Error reading the file: " + e.getMessage());
         }
-        return patient;
+        return null;
     }
 }

@@ -10,7 +10,7 @@ public class ECDSADemo {
  	static String publickey;
  	
     public static void main(String[] args) {
-    	
+    	publickey.verify();
     	/*
         try {
             // Generate key pair
