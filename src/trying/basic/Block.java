@@ -6,11 +6,11 @@ import java.security.spec.X509EncodedKeySpec;
 
 
 import java.util.Arrays;
-
+import trying.FileIO;
 public class Block {
 
     private String PreviousHash;
-    public String BlockHash;
+    private String BlockHash;
     public static String[] data;
    public static KeyPair keyPair;
     private FileIO dataset;
@@ -75,7 +75,7 @@ public class Block {
 			}
 
             // Sign the data of the new block
-            byte[] signature = ECDSADemo.sign(newBlock.getDataString(), this.keyPair.getPrivate());
+            byte[] signature = ECDSADemo.sign(newBlock.data, this.keyPair.getPrivate());
 
             // Verify the signature of the previous block
             if (!this.verifyBlock()) {
@@ -84,7 +84,7 @@ public class Block {
             }
 
             // Verify the signature of the new block
-            if (!ECDSADemo.verify(newBlock.getDataString(), signature, newBlock.keyPair.getPublic())) {
+            if (!ECDSADemo.verify(newBlock.data, signature, newBlock.keyPair.getPublic())) {
                 System.out.println("Error: New block's signature verification failed.");
                 return;
             }
@@ -100,21 +100,13 @@ public class Block {
 
     
     
-    private String getDataString() {
-        // Combine the data array into a single string
-        StringBuilder dataString = new StringBuilder(this.PreviousHash);
-        for (String data : this.data) {
-            dataString.append(data);
-        }
-        return dataString.toString();
-    }
-    
+   
     public boolean verifyBlock() {
         try {
             // Verify the signature using the public key
             PublicKey publicKey = ECDSADemo.getPublicKeyFromBytes(this.keyPair.getPublic().getEncoded());
-            byte[] signature = ECDSADemo.sign(this.getDataString(), this.keyPair.getPrivate());
-            return ECDSADemo.verify(this.getDataString(), signature, publicKey);
+            byte[] signature = ECDSADemo.sign(Block.data, Block.keyPair.getPrivate());
+            return ECDSADemo.verify(this.data, signature, publicKey);
         } catch (Exception e) {
             e.printStackTrace();
             return false;
