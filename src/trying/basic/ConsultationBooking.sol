@@ -1,4 +1,4 @@
-subl Failed// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 contract ConsultationBooking {
@@ -7,7 +7,7 @@ contract ConsultationBooking {
     uint256 public consultationFee;
     bool public consultationStarted;
     bool public consultationCompleted;
-    address payable wallet;
+    
     
     
 
@@ -38,7 +38,9 @@ contract ConsultationBooking {
     }
 
 
-    constructor(address _patient,address _doctor, uint256 _consultationFee) {
+    constructor (address _patient, address _doctor, uint256 _consultationFee) payable {
+        require(msg.value > 0, "Value cannot equal zero");
+        require(_patient != address(0), "Invalid patient address");
         require(_doctor != address(0), "Invalid doctor address");
         require(_consultationFee > 0, "Consultation fee must be greater than 0");
 
@@ -48,16 +50,14 @@ contract ConsultationBooking {
         consultationFee = _consultationFee;
     }
 
-    function bookConsultaion() external payable onlyPatient consultationNotStarted {
-    require(msg.value == consultationFee*1 wei, "Incorrect consultation fee");
-
-    // Remove this line as patient is already set in the constructor
-    // patient = msg.sender;
+   function bookConsultaion() external payable onlyPatient consultationNotStarted {
+    require(msg.sender.balance >= consultationFee * 1 wei , "Incorrect consultation fee");
 
     consultationStarted = true;
 
     emit ConsultationBooked(patient, consultationFee);
 }
+
 
     function startConsultation() external onlyDoctor consultationNotCompleted {
         require(consultationStarted, "Consultation has not been booked yet");
@@ -76,12 +76,12 @@ contract ConsultationBooking {
 
         emit ConsultationCompleted(doctor, patient);
     }
+
+    
    
 
     // Fallback function to reject direct payments to the contract
     receive() external payable {
         revert("Use the bookConsultation function to initiate the consultation");
     }
-
-    
 }
