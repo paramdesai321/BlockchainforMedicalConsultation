@@ -1,6 +1,8 @@
+package trying.basic;
 
 import java.security.*;
 import java.security.spec.ECGenParameterSpec;
+import java.security.spec.X509EncodedKeySpec;
 
 public class ECDSADemo {
 
@@ -41,7 +43,7 @@ public class ECDSADemo {
     // Generate ECDSA key pair
 
     public static KeyPair generateKeyPair(String[] dataArray, String previousHash) throws NoSuchAlgorithmException, InvalidAlgorithmParameterException {
-        // Combine all strings in the array
+        // Combine all strings in the array 
         StringBuilder combinedDataBuilder = new StringBuilder(previousHash);
         for (String data : dataArray) {
             combinedDataBuilder.append(data);
@@ -55,27 +57,37 @@ public class ECDSADemo {
         // Pass combined data as additional input
         SecureRandom secureRandom = new SecureRandom(combinedData.getBytes());
         keyPairGenerator.initialize(ecGenParameterSpec, secureRandom);
+        
 
         return keyPairGenerator.generateKeyPair();
+        
     }
     // Sign a message using the private key
-    private static byte[] sign(String message, PrivateKey privateKey)
+    public static byte[] sign(String message, PrivateKey privateKey)
             throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
         Signature ecdsaSignature = Signature.getInstance("SHA256withECDSA");
         ecdsaSignature.initSign(privateKey);
         ecdsaSignature.update(message.getBytes());
         return ecdsaSignature.sign();
     }
+    //  som
 
     // Verify the signature using the public key
-    private static boolean verify(String message, byte[] signature, PublicKey publicKey)
+    public static boolean verify(String message, byte[] signature, PublicKey publicKey)
             throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
         Signature ecdsaSignature = Signature.getInstance("SHA256withECDSA");
         ecdsaSignature.initVerify(publicKey);
         ecdsaSignature.update(message.getBytes());
         return ecdsaSignature.verify(signature);
     }
+    
+    public static PublicKey getPublicKeyFromBytes(byte[] keyBytes) throws Exception {
+        KeyFactory keyFactory = KeyFactory.getInstance("EC");
+        X509EncodedKeySpec keySpec = new X509EncodedKeySpec(keyBytes);
+        return keyFactory.generatePublic(keySpec);
+    }
 
+   
     // Convert bytes to hexadecimal string
     public static String bytesToHex(byte[] bytes) {
         StringBuilder result = new StringBuilder();
