@@ -63,23 +63,34 @@ public class ECDSADemo {
         
     }
     // Sign a message using the private key
-    public static byte[] sign(String message, PrivateKey privateKey)
+    public static byte[] sign(String[] messages, PrivateKey privateKey)
             throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
         Signature ecdsaSignature = Signature.getInstance("SHA256withECDSA");
         ecdsaSignature.initSign(privateKey);
-        ecdsaSignature.update(message.getBytes());
+        
+        for (String message : messages) {
+            ecdsaSignature.update(message.getBytes());
+        }
+        
         return ecdsaSignature.sign();
     }
+
     //  som
 
     // Verify the signature using the public key
-    public static boolean verify(String message, byte[] signature, PublicKey publicKey)
+ // Verify the signature using the public key
+    public static boolean verify(String[] messages, byte[] signature, PublicKey publicKey)
             throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
         Signature ecdsaSignature = Signature.getInstance("SHA256withECDSA");
         ecdsaSignature.initVerify(publicKey);
-        ecdsaSignature.update(message.getBytes());
+        
+        for (String message : messages) {
+            ecdsaSignature.update(message.getBytes());
+        }
+        
         return ecdsaSignature.verify(signature);
     }
+
     
     public static PublicKey getPublicKeyFromBytes(byte[] keyBytes) throws Exception {
         KeyFactory keyFactory = KeyFactory.getInstance("EC");
