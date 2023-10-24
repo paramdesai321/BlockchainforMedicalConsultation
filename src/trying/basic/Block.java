@@ -1,4 +1,4 @@
-package trying.basic;
+//package trying.basic;
 import java.security.spec.ECGenParameterSpec;
 import java.security.*;
 import java.security.spec.InvalidKeySpecException;
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import trying.FileIO;
+//import trying.FileIO;
 public class Block {
 
     private String PreviousHash;
@@ -117,15 +117,30 @@ public class Block {
 
 
     public static void main(String[] args) {
-         String[] messages = FileIO.getMessage(); // Implement this method in FileIO
+         String[] pmessage0 = FileIO.getPatientMessage(); 
+         String[] dmessage0 = FileIO.getDoctorMessage();
 
         // Create an empty list to store blocks (your blockchain)
         List<Block> blockchain = new ArrayList<>();
         
         // Create the genesis block using the messages
-        Block genesisBlock = new Block(messages);
+        Block genesisBlock = new Block(pmessage0);
         blockchain.add(genesisBlock);
-
+        
+        Block Block1 = new Block(genesisBlock.BlockHash,dmessage0);
+        blockchain.add(Block1);
+        
+        
+        Block Block2 = new Block(Block1.BlockHash,FileIO.getPatientMessagenext());
+        blockchain.add(Block2);
+        
+        Block Block3 = new Block(Block2.BlockHash,FileIO.getDoctorMessagenext());
+        blockchain.add(Block3);
+        
+        Block Block4 = new Block(Block3.BlockHash,FileIO.getPatientMessagenext1());
+        blockchain.add(Block4);
+        
+    
         // Create and add additional blocks to the blockchain (if needed)
 
         // Verify and print the blockchain
@@ -135,7 +150,7 @@ public class Block {
             System.out.println("Previous Hash: " + currentBlock.PreviousHash);
             System.out.println("Block Hash: " + currentBlock.BlockHash);
             System.out.println("Data: " + String.join("\n", Block.data));
-            System.out.println("Is Valid: " + currentBlock.verifyBlock());
+            System.out.println("Block Verification: " + currentBlock.verifyBlock());
             System.out.println();
         }
     }
