@@ -1,5 +1,6 @@
 import java.math.BigInteger;
 import java.security.SecureRandom;
+import java.nio.charset.StandardCharsets;
 
 public class RSA {
     private BigInteger privateKey;
@@ -20,31 +21,42 @@ public class RSA {
     }
 
     // Encrypt plaintext
-    public BigInteger encrypt(BigInteger message) {
+   
+
+      public BigInteger encrypt(String plaintext) {
+        byte[] bytes = plaintext.getBytes();
+        BigInteger message = new BigInteger(bytes);
         return message.modPow(publicKey, modulus);
     }
 
+
     // Decrypt ciphertext
-    public BigInteger decrypt(BigInteger ciphertext) {
-        return ciphertext.modPow(privateKey, modulus);
-    }
-
-    public static void main(String[] args) {
-        RSA rsa = new RSA();
-
-        // Generate key pair with 2048-bit length
-        rsa.generateKeyPair(2048);
-
-        // Example usage
-        BigInteger message = new BigInteger("48");
-        System.out.println("Original message: " + message);
-
-        // Encryption
-        BigInteger encryptedMessage = rsa.encrypt(message);
-        System.out.println("Encrypted message: " + encryptedMessage);
-
-        // Decryption
-        BigInteger decryptedMessage = rsa.decrypt(encryptedMessage);
-        System.out.println("Decrypted message: " + decryptedMessage);
-    }
+ 
+   public String decrypt(BigInteger ciphertext) {
+    BigInteger decryptedMessage = ciphertext.modPow(privateKey, modulus);
+    byte[] bytes = decryptedMessage.toByteArray();
+    return new String(bytes, StandardCharsets.UTF_8);
 }
+
+  public static void main(String[] args) {
+    RSA rsa = new RSA();
+
+    // Generate key pair with 2048-bit length
+    rsa.generateKeyPair(2048);
+
+    // Example usage
+    String message = "Hello world";
+    System.out.println("Original message: " + message);
+
+    // Encryption
+    BigInteger encryptedMessage = rsa.encrypt(message);
+    System.out.println("Encrypted message: " + encryptedMessage);
+
+    // Decryption
+    String decryptedMessage = rsa.decrypt(encryptedMessage);
+    System.out.println("Decrypted message: " + decryptedMessage);
+}
+
+}
+
+
