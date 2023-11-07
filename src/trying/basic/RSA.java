@@ -1,12 +1,10 @@
 import java.math.BigInteger;
-import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
-import java.util.Arrays;
 
 public class RSA {
-    private BigInteger privateKey;
-    private BigInteger publicKey;
-    private BigInteger modulus;
+    public BigInteger privateKey;
+    public BigInteger publicKey;
+    public BigInteger modulus;
 
     // Generate key pair
     public void generateKeyPair(int bitLength) {
@@ -21,16 +19,18 @@ public class RSA {
         privateKey = publicKey.modInverse(phi);
     }
 
-    // Encrypt concatenated string
-    public BigInteger encryptConcatenatedString(String concatenatedString) {
-        byte[] bytes = concatenatedString.getBytes(StandardCharsets.UTF_8);
-        return new BigInteger(bytes).modPow(publicKey, modulus);
+    // Encrypt plaintext string
+    public BigInteger encrypt(String plaintext) {
+        byte[] bytes = plaintext.getBytes();
+        BigInteger message = new BigInteger(bytes);
+        return message.modPow(publicKey, modulus);
     }
 
-    // Decrypt single ciphertext to a string
-    public String decryptAndSplit(BigInteger concatenatedCiphertext) {
-        byte[] decryptedBytes = concatenatedCiphertext.modPow(privateKey, modulus).toByteArray();
-        return new String(decryptedBytes, StandardCharsets.UTF_8);
+    // Decrypt ciphertext to string
+    public String decrypt(BigInteger ciphertext) {
+        BigInteger decryptedMessage = ciphertext.modPow(privateKey, modulus);
+        byte[] bytes = decryptedMessage.toByteArray();
+        return new String(bytes);
     }
 
     public static void main(String[] args) {
@@ -39,19 +39,16 @@ public class RSA {
         // Generate key pair with 2048-bit length
         rsa.generateKeyPair(2048);
 
-        // Example usage with array of strings
-        String[] messages = {"Hello", "World", "RSA is better than ECDSA"};
-        System.out.println("Original messages: " + Arrays.toString(messages));
-
-        // Concatenate strings
-        String concatenatedString = String.join("", messages);
+        // Example usage with string
+        String originalMessage = "Hello, RSA!";
+        System.out.println("Original message: " + originalMessage);
 
         // Encryption
-        BigInteger encryptedConcatenatedString = rsa.encryptConcatenatedString(concatenatedString);
-        System.out.println("Encrypted and concatenated message: " + encryptedConcatenatedString);
+        BigInteger encryptedMessage = rsa.encrypt(originalMessage);
+        System.out.println("Encrypted message: " + encryptedMessage);
 
         // Decryption
-        String decryptedMessage = rsa.decryptAndSplit(encryptedConcatenatedString);
+        String decryptedMessage = rsa.decrypt(encryptedMessage);
         System.out.println("Decrypted message: " + decryptedMessage);
     }
 }
