@@ -9,7 +9,7 @@ import java.util.List;
 
 //import trying.FileIO;
 public class Block {
-
+  
     private String PreviousHash;
     public String BlockHash;
     public static String[] data;
@@ -117,28 +117,30 @@ public class Block {
 
 
     public static void main(String[] args) {
-         String[] pmessage0 = FileIO.getPatientMessage(); 
-         String[] dmessage0 = FileIO.getDoctorMessage();
+    // Your code from the HEAD branch
+    String[] pmessage0 = FileIO.getPatientMessage(); 
+    String[] dmessage0 = FileIO.getDoctorMessage();
 
-        // Create an empty list to store blocks (your blockchain)
-        List<Block> blockchain = new ArrayList<>();
-        
-        // Create the genesis block using the messages
-        Block genesisBlock = new Block(pmessage0);
-        blockchain.add(genesisBlock);
-        
-        Block Block1 = new Block(genesisBlock.BlockHash,dmessage0);
-        blockchain.add(Block1);
-        
-        Block Block2 = new Block(Block1.BlockHash,FileIO.getPatientMessagenext());
-        blockchain.add(Block2);
-        
-        Block Block3 = new Block(Block2.BlockHash,FileIO.getDoctorMessagenext());
-        blockchain.add(Block3);
-        
-        Block Block4 = new Block(Block3.BlockHash,FileIO.getPatientMessagenext1());
-        blockchain.add(Block4);
-        
+    // Create an empty list to store blocks (your blockchain)
+    List<Block> blockchain = new ArrayList<>();
+
+    // Create the genesis block using the messages
+    Block genesisBlock = new Block(pmessage0);
+    blockchain.add(genesisBlock);
+
+    Block Block1 = new Block(genesisBlock.BlockHash, dmessage0);
+    blockchain.add(Block1);
+
+    Block Block2 = new Block(Block1.BlockHash, FileIO.getPatientMessagenext());
+    blockchain.add(Block2);
+
+    Block Block3 = new Block(Block2.BlockHash, FileIO.getDoctorMessagenext());
+    blockchain.add(Block3);
+
+    Block Block4 = new Block(Block3.BlockHash, FileIO.getPatientMessagenext1());
+    blockchain.add(Block4);
+}
+
     
         // Create and add additional blocks to the blockchain (if needed)
 
