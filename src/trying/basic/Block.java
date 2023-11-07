@@ -9,7 +9,7 @@ import java.util.List;
 
 //import trying.FileIO;
 public class Block {
-
+  
     private String PreviousHash;
     public String BlockHash;
     public static String[] data;
