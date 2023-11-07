@@ -139,7 +139,7 @@ public class Block {
 
     Block Block4 = new Block(Block3.BlockHash, FileIO.getPatientMessagenext1());
     blockchain.add(Block4);
-}
+
 
     
         // Create and add additional blocks to the blockchain (if needed)
@@ -154,5 +154,6 @@ public class Block {
             System.out.println("Block Verification: " + currentBlock.verifyBlock());
             System.out.println();
         }
+        }
     }
-}
+
