@@ -117,17 +117,28 @@ public class Block {
 
 
     public static void main(String[] args) {
+<<<<<<< HEAD
          String[] pmessage0 = FileIO.getPatientMessage(); 
          String[] dmessage0 = FileIO.getDoctorMessage();
 
+=======
+         
+>>>>>>> c5256cc (Testing and compliling)
         // Create an empty list to store blocks (your blockchain)
         List<Block> blockchain = new ArrayList<>();
         
         // Create the genesis block using the messages
+<<<<<<< HEAD
         Block genesisBlock = new Block(pmessage0);
         blockchain.add(genesisBlock);
         
         Block Block1 = new Block(genesisBlock.BlockHash,dmessage0);
+=======
+        Block genesisBlock = new Block(FileIO.getDoctorMessage());
+        blockchain.add(genesisBlock);
+
+        Block Block1 = new Block(genesisBlock.PreviousHash,FileIO.getPatientMessage());
+>>>>>>> c5256cc (Testing and compliling)
         blockchain.add(Block1);
         
         
