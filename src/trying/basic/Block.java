@@ -130,7 +130,6 @@ public class Block {
         Block Block1 = new Block(genesisBlock.BlockHash,dmessage0);
         blockchain.add(Block1);
         
-        
         Block Block2 = new Block(Block1.BlockHash,FileIO.getPatientMessagenext());
         blockchain.add(Block2);
         
