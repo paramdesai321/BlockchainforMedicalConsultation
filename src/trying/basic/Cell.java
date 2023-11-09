@@ -10,7 +10,7 @@ public class Cell {
 
     public Cell(String message) {
         this.message = message;
-        this.previousHash = null;
+        
         this.cellHash = hash(message);
         System.out.println(cellHash);
     }
@@ -18,7 +18,7 @@ public class Cell {
     private BigInteger hash(String input) {
         byte[] bytes = input.getBytes();
         BigInteger hashedBigInt = new BigInteger(bytes).modPow(rsa.publicKey, rsa.modulus);
-        return hashedBigInt;
+        return null;
     }
 
     public static void main(String[] args) {
@@ -42,6 +42,8 @@ public class Cell {
 
         System.out.println("Public Key (e, n): " + e + ", " + n);
         System.out.println("Private Key (d, n): " + d + ", " + n);
+
+      Cell cell = new Cell("RSA");
     }
 }
 

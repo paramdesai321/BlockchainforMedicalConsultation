@@ -111,6 +111,11 @@ public class Block {
         }
     }
 
+    public static void toString(String[] args){
+        for(int i=0;i<args.length;i++){
+            System.out.println(args[i]);
+        }
+    }
   
 
    
@@ -124,15 +129,18 @@ public class Block {
     List<Block> blockchain = new ArrayList<>();
 
     // Create the genesis block using the messages
-    Block genesisBlock = new Block(messages);
+    Block genesisBlock = new Block(FileIO.getPatientMessagenext());
     blockchain.add(genesisBlock);
+    toString(blockchain.get(0).data);
 
-    Block Block1 = new Block(genesisBlock.BlockHash, messages);
+    Block Block1 = new Block(genesisBlock.BlockHash, FileIO.getDoctorMessagenext());
     blockchain.add(Block1);
+    System.out.println("control is here");
+    toString(blockchain.get(1).data);
 
-    Block Block2 = new Block(Block1.BlockHash, messages);
+    Block Block2 = new Block(Block1.BlockHash, FileIO.getDoctorMessagenext());
     blockchain.add(Block2);
-
+    toString(blockchain.get(1).data);
     Block Block3 = new Block(Block2.BlockHash, messages);
     blockchain.add(Block3);
 
@@ -143,7 +151,8 @@ public class Block {
     
         // Create and add additional blocks to the blockchain (if needed)
 
-        // Verify and print the blockchain
+        //Verify and print the blockchain
+    System.out.println("pritning using loop");
         for (int i = 0; i < blockchain.size(); i++) {
             Block currentBlock = blockchain.get(i);
             System.out.println("Block #" + i);
