@@ -152,24 +152,28 @@ public class FileIO {
 
     
 
+ public static void printDoctorAndPatientMessages() {
+        String[] doctorMessages = FileIO.getDoctorMessage();
+        String[] patientMessages = FileIO.getPatientMessage();
 
-    
+        int doctorCounter = 0;
+        int patientCounter = 0;
+
+        while (doctorCounter < doctorMessages.length || patientCounter < patientMessages.length) {
+            if (doctorCounter < doctorMessages.length) {
+                System.out.println(doctorMessages[doctorCounter]);
+                doctorCounter++;
+            }
+
+            if (patientCounter < patientMessages.length) {
+                System.out.println(patientMessages[patientCounter]);
+                patientCounter++;
+            }
+        }
+    }
+
     public static void main(String[] args) {
         // Example usage
-    	
-    	getPatientMessage();
-    	
-    	
-		/*
-		
-    	String[] doctorResult =patient2;
-
-    	
-    	for (int i = 0; i < doctorResult.length; i++) {
-    	    System.out.println("Doctor: " + doctorResult[i]);
-    	}
-
-    	*/
-    	
+        printDoctorAndPatientMessages();
     }
 }
