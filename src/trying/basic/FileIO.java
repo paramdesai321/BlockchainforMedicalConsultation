@@ -152,25 +152,27 @@ public class FileIO {
 
     
 
- public static void printDoctorAndPatientMessages() {
-        String[] doctorMessages = FileIO.getDoctorMessage();
-        String[] patientMessages = FileIO.getPatientMessage();
+ public static String[] printDoctorAndPatientMessages() {
+    String[] doctorMessages = FileIO.getDoctorMessage();
+    String[] patientMessages = FileIO.getPatientMessage();
+    int totalMessages = doctorMessages.length + patientMessages.length;
+    String[] allMessages = new String[totalMessages];
 
-        int doctorCounter = 0;
-        int patientCounter = 0;
+    int doctorCounter = 0;
+    int patientCounter = 0;
 
-        while (doctorCounter < doctorMessages.length || patientCounter < patientMessages.length) {
-            if (doctorCounter < doctorMessages.length) {
-                System.out.println(doctorMessages[doctorCounter]);
-                doctorCounter++;
-            }
-
-            if (patientCounter < patientMessages.length) {
-                System.out.println(patientMessages[patientCounter]);
-                patientCounter++;
-            }
+    for (int i = 0; i < totalMessages; i++) {
+        if (i % 2 == 0 && doctorCounter < doctorMessages.length) {
+            allMessages[i] = doctorMessages[doctorCounter];
+            doctorCounter++;
+        } else if (patientCounter < patientMessages.length) {
+            allMessages[i] = patientMessages[patientCounter];
+            patientCounter++;
         }
     }
+
+    return allMessages;
+}
 
     public static void main(String[] args) {
         // Example usage

@@ -118,25 +118,25 @@ public class Block {
 
     public static void main(String[] args) {
     // Your code from the HEAD branch
-
+        String[] messages = FileIO.printDoctorAndPatientMessages();
 
     // Create an empty list to store blocks (your blockchain)
     List<Block> blockchain = new ArrayList<>();
 
     // Create the genesis block using the messages
-    Block genesisBlock = new Block(FileIO.getPatientMessage);
+    Block genesisBlock = new Block(messages);
     blockchain.add(genesisBlock);
 
-    Block Block1 = new Block(genesisBlock.BlockHash, FileIO.getPatientMessage());
+    Block Block1 = new Block(genesisBlock.BlockHash, messages);
     blockchain.add(Block1);
 
-    Block Block2 = new Block(Block1.BlockHash, FileIO.getDoctorMessage());
+    Block Block2 = new Block(Block1.BlockHash, messages);
     blockchain.add(Block2);
 
-    Block Block3 = new Block(Block2.BlockHash, FileIO.getPatientMessagenext());
+    Block Block3 = new Block(Block2.BlockHash, messages);
     blockchain.add(Block3);
 
-    Block Block4 = new Block(Block3.BlockHash, FileIO.getPatientMessage());
+    Block Block4 = new Block(Block3.BlockHash, messages);
     blockchain.add(Block4);
 
 
@@ -149,7 +149,7 @@ public class Block {
             System.out.println("Block #" + i);
             System.out.println("Previous Hash: " + currentBlock.PreviousHash);
             System.out.println("Block Hash: " + currentBlock.BlockHash);
-            System.out.println("Data: " + String.join("\n", Block.data));
+            System.out.println("Data: \n" + String.join("\n", Block.data));
             System.out.println("Block Verification: " + currentBlock.verifyBlock());
             System.out.println();
         }
