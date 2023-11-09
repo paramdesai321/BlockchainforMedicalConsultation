@@ -176,6 +176,9 @@ public class FileIO {
 
     public static void main(String[] args) {
         // Example usage
-        printDoctorAndPatientMessages();
+        String[] arr = printDoctorAndPatientMessages();
+        for(int i=0;i<arr.length;i++){
+            System.out.println(arr[i]);
+        }
     }
 }
