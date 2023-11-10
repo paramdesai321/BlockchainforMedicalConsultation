@@ -10,7 +10,6 @@ public class Cell {
 
     public Cell(String message) {
         this.message = message;
-        this.previousHash = null;
         this.cellHash = hash(message);
         System.out.println(cellHash);
     }
@@ -42,6 +41,9 @@ public class Cell {
 
         System.out.println("Public Key (e, n): " + e + ", " + n);
         System.out.println("Private Key (d, n): " + d + ", " + n);
-    }
-}
 
+
+      
+
+    }
+} 
