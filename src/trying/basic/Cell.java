@@ -9,7 +9,8 @@ public class Cell {
     RSA rsa = new RSA();
 
     public Cell(String message) {
-        this.message = message;
+        this.message = message;    
+
         this.cellHash = hash(message);
         System.out.println(cellHash);
     }
@@ -17,7 +18,7 @@ public class Cell {
     private BigInteger hash(String input) {
         byte[] bytes = input.getBytes();
         BigInteger hashedBigInt = new BigInteger(bytes).modPow(rsa.publicKey, rsa.modulus);
-        return hashedBigInt;
+        return null;
     }
 
     public static void main(String[] args) {
@@ -26,8 +27,7 @@ public class Cell {
         // Generate two large prime numbers (p and q)
         BigInteger p = new BigInteger(512, 100, random);
         BigInteger q = new BigInteger(512, 100, random);
-
-        // Calculate n = p * q (modulus)
+                // Calculate n = p * q (modulus)
         BigInteger n = p.multiply(q);
 
         // Calculate phi(n) = (p-1) * (q-1) (Euler's totient function)
@@ -43,7 +43,10 @@ public class Cell {
         System.out.println("Private Key (d, n): " + d + ", " + n);
 
 
+      Cell cell = new Cell("RSA");
+    }
+}
+
+
       
 
-    }
-} 
