@@ -10,11 +10,11 @@ import java.util.List;
 //import trying.FileIO;
 public class Block {
   
-    private String PreviousHash;
+    public  String PreviousHash;
     public String BlockHash;
     public static String[] data;
    public static KeyPair keyPair;
-    private FileIO dataset;
+    public FileIO dataset;
      ECDSADemo encryption = new ECDSADemo();
      
      
@@ -56,44 +56,11 @@ public class Block {
 		}
        
         
-        this.BlockHash = ECDSADemo.bytesToHex(keyPair.getPrivate().getEncoded());;
-               
+        this.BlockHash = ECDSADemo.bytesToHex(keyPair.getPrivate().getEncoded());;             
        
     }
     
     
-    public void addBlock(Block newBlock) throws InvalidKeySpecException {
-        try {
-            // Generate key pair for the new block
-            try {
-				newBlock.keyPair = ECDSADemo.generateKeyPair(newBlock.data, this.BlockHash);
-			} catch (InvalidAlgorithmParameterException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-            // Sign the data of the new block
-            byte[] signature = ECDSADemo.sign(newBlock.data, this.keyPair.getPrivate());
-
-            // Verify the signature of the previous block
-            if (!this.verifyBlock()) {
-                System.out.println("Error: Previous block's signature verification failed.");
-                return;
-            }
-
-            // Verify the signature of the new block
-            if (!ECDSADemo.verify(newBlock.data, signature, newBlock.keyPair.getPublic())) {
-                System.out.println("Error: New block's signature verification failed.");
-                return;
-            }
-
-            // Add the new block to the blockchain
-            // ... (add your logic here)
-
-        } catch (NoSuchAlgorithmException | InvalidKeyException | SignatureException e) {
-            e.printStackTrace();
-        }
-    }
 
 
     
@@ -141,10 +108,10 @@ public class Block {
     Block Block2 = new Block(Block1.BlockHash, FileIO.getDoctorMessagenext());
     blockchain.add(Block2);
     toString(blockchain.get(1).data);
-    Block Block3 = new Block(Block2.BlockHash, messages);
+    Block Block3 = new Block(Block2.BlockHash, FileIO.getPatientMessagenext1());
     blockchain.add(Block3);
 
-    Block Block4 = new Block(Block3.BlockHash, messages);
+    Block Block4 = new Block(Block3.BlockHash, FileIO.getDoctorMessagenext1());
     blockchain.add(Block4);
 
 

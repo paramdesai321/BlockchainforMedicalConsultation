@@ -150,6 +150,11 @@ public class FileIO {
 		    	    return patient2;
 		    	}
 
+        public static String[] getDoctorMessagenext1(){
+
+            getDoctorMessage();
+            return doc1;
+        }
     
 
  public static String[] printDoctorAndPatientMessages() {
