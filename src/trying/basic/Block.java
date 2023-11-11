@@ -107,16 +107,17 @@ public class Block {
 
     public static void main(String[] args) {
     // Your code from the HEAD branch
-        String[] messages = FileIO.printDoctorAndPatientMessages();
+    
 
     // Create an empty list to store blocks (your blockchain)
     List<Block> blockchain = new ArrayList<>();
 
     // Create the genesis block using the messages
-    Block genesisBlock = new Block(FileIO.getPatientMessage());
+    Block genesisBlock = new Block(FileIO.getDoctorMessage());
     blockchain.add(genesisBlock);
     PrintBlockchain(genesisBlock);
-    Block Block1 = new Block(genesisBlock.BlockHash, FileIO.getDoctorMessage());
+  //  System.out.println("control is here");
+    Block Block1 = new Block(genesisBlock.BlockHash, FileIO.getPatientMessage());
     blockchain.add(Block1);
    
     PrintBlockchain(Block1);
@@ -136,7 +137,16 @@ public class Block {
     blockchain.add(Block4);
 
     PrintBlockchain(Block4);
-        
+
+
+  
+    Block Block5 = new Block(Block4.BlockHash, FileIO.getPatientMessagenext1());
+    blockchain.add(Block4);
+    PrintBlockchain(Block5);
+
+
+
+
 
 
      

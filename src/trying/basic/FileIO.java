@@ -15,8 +15,12 @@ public class FileIO {
     public static String[] patient = new String[5];
     public static  String[] patient1 = new String[5];
     public static  String[] patient2 = new String[5];
-    public static String[] doc1 = new String[5];   
-  
+    public static String[] doc1 = new String[5];
+    public static String[] doc2 = new String[5];
+    public static String[]  patient3 = new String[5];
+    public static String[] doc3 = new String[5];
+
+    
     public  static String[] getPatientMessage() {
       
         try {
@@ -31,6 +35,7 @@ public class FileIO {
             int p = 0;
             int i=0;
             int j=0;
+            int k=0;
 
             while ((line = reader.readLine()) != null) {
                 if (!line.isEmpty()) {
@@ -45,20 +50,24 @@ public class FileIO {
                             i++;
                             p++;
                         }
-                        else if(p>=10) {
+                        else if(p>=10 && p<15) {
                         	if(p==15) break;
-                        	patient2[j] = line;
-                        	
+                        	patient2[j] = line;                        	
                         	j++;
                         	p++;
+                        }
+                        else if (p>= 15){
+                            if(p==20) break;
+                            patient3[k] = line;
+                          //  System.out.println(patient3[k]);
+                            k++;
+                            p++;
                         }
                         else {
                             patient[p] = line;                      
                             p++;
                         }
-                    }
-
-                    
+                    }                  
                   
                 }
             }
@@ -92,7 +101,9 @@ public class FileIO {
             char firstChar;
 
             int d = 0;
+            int i=0;
             int j=0;
+            int k=0;
          
 
             while ((line = reader.readLine()) != null) {
@@ -100,13 +111,28 @@ public class FileIO {
                     firstChar = line.charAt(0);
 
                     if (firstChar == 'D') {
-                         if (d >= 5) {
+                         if (d >= 5 && d<10) {
                             if (d == 10) break;
-                            doc1[j] = line;
+                            doc1[i] = line;
+                            i++;
+                            d++;                                                                	  
+                        }
+                        else if(d>=10 && d<15){
+                            if(d==15) break;
+                            doc2[j] = line;
+                            
                             j++;
                             d++;
-                                                                	  
-                        } else {
+                        } 
+                        else if(d>=15){
+                            if(d==20) break;
+                            doc3[k] = line;
+                         //   System.out.println(doc3[k]);
+                            k++;
+                            d++;
+
+                        }
+                        else {
                             doc[d] = line;
                             d++;
                         }
@@ -153,37 +179,32 @@ public class FileIO {
         public static String[] getDoctorMessagenext1(){
 
             getDoctorMessage();
-            return doc1;
+            return doc2;
         }
+
+         public static String[] getDoctorMessagenext2(){
+
+            getDoctorMessage();
+            return doc3;
+        }
+
+         public static String[] getPatientMessagenext2() {
+               
+                getPatientMessage();
+                
+                    return patient3;
+                }
+
+
+
     
 
- public static String[] printDoctorAndPatientMessages() {
-    String[] doctorMessages = FileIO.getDoctorMessage();
-    String[] patientMessages = FileIO.getPatientMessage();
-    int totalMessages = doctorMessages.length + patientMessages.length;
-    String[] allMessages = new String[totalMessages];
 
-    int doctorCounter = 0;
-    int patientCounter = 0;
-
-    for (int i = 0; i < totalMessages; i++) {
-        if (i % 2 == 0 && doctorCounter < doctorMessages.length) {
-            allMessages[i] = doctorMessages[doctorCounter];
-            doctorCounter++;
-        } else if (patientCounter < patientMessages.length) {
-            allMessages[i] = patientMessages[patientCounter];
-            patientCounter++;
-        }
-    }
-
-    return allMessages;
-}
 
     public static void main(String[] args) {
         // Example usage
-        String[] arr = printDoctorAndPatientMessages();
-        for(int i=0;i<arr.length;i++){
-            System.out.println(arr[i]);
-        }
-    }
+       getDoctorMessage (); 
+       getPatientMessage();
+}
+
 }
