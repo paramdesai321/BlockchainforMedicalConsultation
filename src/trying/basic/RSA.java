@@ -43,28 +43,26 @@ public class RSA {
          
 
         System.out.println("Block #"+ counter);
-        if(counter ==0) System.out.println("Previous Hash:null");
+        if(counter ==0) System.out.println("Previous Hash: null\n");
        // if(counter!=0) System.out.println("Previous Hash:"); 
-        System.out.println("Original message: " + originalMessage);
+        System.out.println("Original message: " + originalMessage+"\n");
 
 
 
         // Encryption
         BigInteger encryptedMessage = rsa.encrypt(originalMessage);
-        System.out.println("Hash: " + encryptedMessage);
+        System.out.println("Hash: " + encryptedMessage+"\n");
 
          PreviousHash[j] = encryptedMessage;
          
         if (counter !=0){
             
-            System.out.println("Previous Hash:"+PreviousHash[j-1]);
+            System.out.println("Previous Hash: "+PreviousHash[j-1]+"\n");
 
         }
-
-
         // Decryption
         String decryptedMessage = rsa.decrypt(encryptedMessage);
-        System.out.println("Decrypted message: " + decryptedMessage);
+        System.out.println("Decrypted message: " + decryptedMessage+"\n");
         counter++;
         j++;
         }

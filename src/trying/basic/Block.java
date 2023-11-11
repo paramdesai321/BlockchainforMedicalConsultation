@@ -16,6 +16,7 @@ public class Block {
    public static KeyPair keyPair;
     public FileIO dataset;
      ECDSADemo encryption = new ECDSADemo();
+     public static int counter=0;
      
      
      public Block(String[] data) {
@@ -78,10 +79,26 @@ public class Block {
         }
     }
 
-    public static void toString(String[] args){
+    public static void printarr(String[] args){
         for(int i=0;i<args.length;i++){
             System.out.println(args[i]);
         }
+    }
+
+
+
+
+ 
+    public static void PrintBlockchain(Block block){
+
+        String[] arr = block.data;
+        System.out.println("Block #:"+ counter);
+        System.out.println("Block Hash: "+ block.BlockHash);
+        System.out.println("Previous Hash: "+block.PreviousHash);
+        System.out.println("Data: ");
+        printarr(arr);
+        System.out.println("Block Verification: " + block.verifyBlock());
+        counter ++;
     }
   
 
@@ -96,39 +113,37 @@ public class Block {
     List<Block> blockchain = new ArrayList<>();
 
     // Create the genesis block using the messages
-    Block genesisBlock = new Block(FileIO.getPatientMessagenext());
+    Block genesisBlock = new Block(FileIO.getPatientMessage());
     blockchain.add(genesisBlock);
-    toString(blockchain.get(0).data);
-
-    Block Block1 = new Block(genesisBlock.BlockHash, FileIO.getDoctorMessagenext());
+    PrintBlockchain(genesisBlock);
+    Block Block1 = new Block(genesisBlock.BlockHash, FileIO.getDoctorMessage());
     blockchain.add(Block1);
-    System.out.println("control is here");
-    toString(blockchain.get(1).data);
+   
+    PrintBlockchain(Block1);
+        
+    
 
     Block Block2 = new Block(Block1.BlockHash, FileIO.getDoctorMessagenext());
     blockchain.add(Block2);
-    toString(blockchain.get(1).data);
-    Block Block3 = new Block(Block2.BlockHash, FileIO.getPatientMessagenext1());
+    PrintBlockchain(Block2);
+     
+    Block Block3 = new Block(Block2.BlockHash, FileIO.getPatientMessagenext());
     blockchain.add(Block3);
+    PrintBlockchain(Block3);
+          
 
     Block Block4 = new Block(Block3.BlockHash, FileIO.getDoctorMessagenext1());
     blockchain.add(Block4);
 
+    PrintBlockchain(Block4);
+        
 
+
+     
+
+
+      
     
-        // Create and add additional blocks to the blockchain (if needed)
-
-        //Verify and print the blockchain
-    System.out.println("pritning using loop");
-        for (int i = 0; i < blockchain.size(); i++) {
-            Block currentBlock = blockchain.get(i);
-            System.out.println("Block #" + i);
-            System.out.println("Previous Hash: " + currentBlock.PreviousHash);
-            System.out.println("Block Hash: " + currentBlock.BlockHash);
-            System.out.println("Data: \n" + String.join("\n", Block.data));
-            System.out.println("Block Verification: " + currentBlock.verifyBlock());
-            System.out.println();
-        }
-        }
-    }
-
+    
+}
+}
