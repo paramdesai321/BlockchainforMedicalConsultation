@@ -39,9 +39,19 @@ public class ECDSADemo {
             System.out.println("Signature verification result: " + isVerified);
         } catch (NoSuchAlgorithmException | InvalidAlgorithmParameterException | SignatureException | InvalidKeyException e) {
             e.printStackTrace();
-        }
+
+                    }
         */
-        
+ 
+        try {
+        // Call the runtime method
+        runtime();
+    } catch (NoSuchAlgorithmException | InvalidAlgorithmParameterException e) {
+        e.printStackTrace();
+    }
+
+
+
     }
 
     // Generate ECDSA key pair
@@ -109,6 +119,32 @@ public class ECDSADemo {
         
         return ecdsaSignature.verify(signature);
     }
+
+
+   public static void runtime() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException{
+    String arr[] = {"This is blockchain for medical consultation"};
+
+    try {
+        // Assuming you want to measure the runtime of generateKeyPair
+        String previousHash = null; // Provide the actual previous hash if needed
+        generateKeyPair(arr, previousHash);
+    } catch (NoSuchAlgorithmException e) {
+        e.printStackTrace();
+    }
+
+    long startTime = System.nanoTime();
+    System.out.println("Start Time: " + startTime + " nanoseconds");
+
+    // Simulate some processing time
+    // ...
+
+    long endTime = System.nanoTime();
+    System.out.println("End Time: " + endTime + " nanoseconds");
+
+    long timeDifference = endTime - startTime;
+    System.out.println("Time Difference: " + timeDifference + " nanoseconds");
+}
+
 
     
     public static PublicKey getPublicKeyFromBytes(byte[] keyBytes) throws Exception {
