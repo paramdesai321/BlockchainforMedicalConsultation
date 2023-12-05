@@ -66,20 +66,31 @@ public class RSA {
         counter++;
         j++;
         }
+
+        public static void runtime(){
+
+           
+           
+        }
     
 
     public static void main(String[] args) {
         RSA rsa = new RSA();
 
-        // Generate key pair with 2048-bit length
+       
         rsa.generateKeyPair(2048);
         String[] arr = FileIO.getPatientMessage();
         Block(arr[0]);
         Block(arr[1]);
         Block(arr[2]);
-        Block(arr[3]);
-        Block(arr[4]);
-    }
+        Block(arr[3]);    
+            Block(arr[4]);
+  
+
+
 
 
     }
+
+}
+    

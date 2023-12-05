@@ -11,13 +11,18 @@ import java.util.Objects;
 
 public class FileIO {
  
+           // 10 more if statments by tommorrow
     public static String[] doc = new String[5];
     public static String[] patient = new String[5];
     public static  String[] patient1 = new String[5];
     public static  String[] patient2 = new String[5];
+    public static String[]  patient3 = new String[5];
+    public static String[] patient4 = new String[5];
+    public static String[] patient5 = new String[5];
+
     public static String[] doc1 = new String[5];
     public static String[] doc2 = new String[5];
-    public static String[]  patient3 = new String[5];
+    
     public static String[] doc3 = new String[5];
 
     
@@ -36,10 +41,13 @@ public class FileIO {
             int i=0;
             int j=0;
             int k=0;
+            int l = 0;
+            int m = 0;
 
             while ((line = reader.readLine()) != null) {
                 if (!line.isEmpty()) {
                     firstChar = line.charAt(0);
+
                     
                     
                     if (firstChar == 'P') {
@@ -56,17 +64,36 @@ public class FileIO {
                         	j++;
                         	p++;
                         }
-                        else if (p>= 15){
-                            if(p==20) break;
+                        else if (p>= 15 && p<20){
+                           
                             patient3[k] = line;
                           //  System.out.println(patient3[k]);
                             k++;
                             p++;
                         }
+
+                        else if(p>=20 && p< 25){
+                           patient4[l] = line;
+                         
+                           l++;
+                           p++;     
+
+                        }else if(p>=25 && p<30){
+                              patient5[m] = line;
+                         
+                           m++;
+                           p++;  
+
+                        }
+
                         else {
+                            if(p== 30) break;
                             patient[p] = line;                      
                             p++;
                         }
+
+
+
                     }                  
                   
                 }
@@ -193,11 +220,38 @@ public class FileIO {
                 getPatientMessage();
                 
                     return patient3;
+       
+                }
+
+
+         public static String[] getPatientMessagenext3() {
+               
+                getPatientMessage();
+                
+                    return patient4;
+       
+                }
+
+
+         public static String[] getPatientMessagenext4() {
+               
+                getPatientMessage();
+                
+                    return patient5;
+       
                 }
 
 
 
-    
+
+
+    public static void printarr(String[] arr){
+
+        for(int i=0;i<arr.length;i++){
+            System.out.println(arr[i]);
+        }
+
+    }
 
 
 
@@ -205,6 +259,11 @@ public class FileIO {
         // Example usage
        getDoctorMessage (); 
        getPatientMessage();
-}
+
+
+        String result []  = patient5;
+        printarr(patient5);
+                }
 
 }
+

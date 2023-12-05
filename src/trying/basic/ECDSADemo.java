@@ -124,8 +124,8 @@ public class ECDSADemo {
    public static void runtime() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException{
     String arr[] = {"This is blockchain for medical consultation"};
 
-    try {
-        // Assuming you want to measure the runtime of generateKeyPair
+    try 
+{        // Assuming you want to measure the runtime of generateKeyPair
         String previousHash = null; // Provide the actual previous hash if needed
         generateKeyPair(arr, previousHash);
     } catch (NoSuchAlgorithmException e) {
@@ -135,8 +135,7 @@ public class ECDSADemo {
     long startTime = System.nanoTime();
     System.out.println("Start Time: " + startTime + " nanoseconds");
 
-    // Simulate some processing time
-    // ...
+   
 
     long endTime = System.nanoTime();
     System.out.println("End Time: " + endTime + " nanoseconds");
