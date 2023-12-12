@@ -46,6 +46,22 @@ public class PatientReader {
 
         return patient;
     }
+    public String[] getPatientArray(int index) {
+        if (index >= 0 && index < patient.length) {
+            return patient[index];
+        }
+        return null; // or handle the out-of-bounds case appropriately
+    }
+
+   public String[] getPatientArray1() {
+        return getPatientArray(0);
+    }
+
+    public String[] getPatientArray2() {
+        return getPatientArray(1);
+    }
+
+
 
     public static void main(String[] args) {
         String[][] result = getPatientMessages();
