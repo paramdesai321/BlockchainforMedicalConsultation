@@ -144,6 +144,14 @@ public class Block {
     blockchain.add(Block4);
     PrintBlockchain(Block5);
 
+    Block Block6 = new Block(Block4.BlockHash, FileIO.getDoctorMessagenext2());
+    blockchain.add(Block6);
+    PrintBlockchain(Block6);
+
+    Block Block7 = new Block(Block4.BlockHash, FileIO.getPatientMessagenext2());
+    blockchain.add(Block7);
+    PrintBlockchain(Block7);
+
 
 
 
