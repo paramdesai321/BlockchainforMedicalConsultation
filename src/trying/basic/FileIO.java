@@ -287,19 +287,7 @@ public  static String[] getDoctorMessage() {
 	   return doc1;
    }
 		   
-		 public static String[] getPatientMessagenext() {
-       
-    	getPatientMessage();
-    	
-    	    return patient1;
-    	}
 		 
-		 public static String[] getPatientMessagenext1() {
-		       
-		    	getPatientMessage();
-		    	
-		    	    return patient2;
-		    	}
 
         public static String[] getDoctorMessagenext1(){
 
@@ -307,11 +295,60 @@ public  static String[] getDoctorMessage() {
             return doc2;
         }
 
-         public static String[] getDoctorMessagenext2(){
+             public static String[] getDoctorMessagenext2(){
 
-            getDoctorMessage();
-            return doc3;
+                getDoctorMessage();
+                return doc3;
+            }
+         public static String[] getDoctorMessagenext3(){
+
+                getDoctorMessage();
+                return doc4;
+            }
+         public static String[] getDoctorMessagenext4(){
+
+                getDoctorMessage();
+                return doc5;
+            }
+
+         public static String[] getDoctorMessagenext5(){
+
+                getDoctorMessage();
+                return doc6;
+            }
+         public static String[] getDoctorMessagenext6(){
+
+                getDoctorMessage();
+                return doc7;
+            }
+         public static String[] getDoctorMessagenext7(){
+
+                getDoctorMessage();
+                return doc8;
+            }
+         public static String[] getDoctorMessagenext8(){
+
+                getDoctorMessage();
+                return doc9;
+            }
+         public static String[] getDoctorMessagenext9(){
+
+                getDoctorMessage();
+                return doc10;
+            }
+        public static String[] getPatientMessagenext() {
+       
+        getPatientMessage();
+        
+            return patient1;
         }
+         
+         public static String[] getPatientMessagenext1() {
+               
+                getPatientMessage();
+                
+                    return patient2;
+                }
 
          public static String[] getPatientMessagenext2() {
                
@@ -374,7 +411,8 @@ public  static String[] getDoctorMessage() {
                 
                     return patient10;
        
-                }
+                }   
+
 
 
 
