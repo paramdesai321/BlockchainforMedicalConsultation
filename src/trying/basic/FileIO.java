@@ -161,89 +161,118 @@ public static String[] doc11 = new String[5];
     
     
 
-    
-    public static  String[] getDoctorMessage() {
+
+public  static String[] getDoctorMessage() {
       
         try {
             BufferedReader reader = new BufferedReader(new FileReader("CAR0001.txt"));
-            
+
        
 
             String line;
             char firstChar;
 
-          int d=0, i=0, j=0, k=0, l=0, m=0, n=0, o=0, p=0, q=0;
-         
+    
+            int p=0, i=0, j=0, k=0, l=0, m=0, n=0, o=0, q=0, r=0, s=0,t=0,u=0,v=0;
+
 
             while ((line = reader.readLine()) != null) {
                 if (!line.isEmpty()) {
                     firstChar = line.charAt(0);
 
+                    
+                    
                     if (firstChar == 'D') {
-                         if (d >= 5 && d<10) {
-                            if (d == 10) break;
+                        
+                        if (p >= 5 && p<10) {
+                          //  if (p == 10) break;
                             doc1[i] = line;
                             i++;
-                            d++;                                                                	  
+                            p++;
                         }
-                        else if(d>=10 && d<15){
-                            if(d==15) break;
-                            doc2[j] = line;
-                            
+                        else if(p>=10 && p<15) {
+                            //if(p==15) break;
+                            doc2[j] = line;                         
                             j++;
-                            d++;
-                        } 
-                        else if(d>=15){
-                            if(d==20) break;
+                            p++;
+                        }
+                        else if (p>= 15 && p<20){
+                           
                             doc3[k] = line;
-                         //   System.out.println(doc3[k]);
+                          //  System.out.println(doc3[k]);
                             k++;
-                            d++;
+                            p++;
+                        }
+
+                        else if(p>=20 && p< 25){
+                           doc4[l] = line;
+                         
+                           l++;
+                           p++;     
+
+                        }else if(p>=25 && p<30){
+                              doc5[m] = line;
+                         
+                           m++;
+                           p++;  
 
                         }
-                         else if(d>=15&&d<=20){
-                            
-                            doc4[k] = line;
-                            k++;
-                            d++;
-
-                        }
-                        else if(d>=20&&d<=25){
-                            
-                            doc5[k] = line;
-                            k++;
-                            d++;
-
-                        }
-                        else if(d>=25&&d<=30){
-                            
+                        else if(p>=30 && p<35){
                             doc6[n] = line;
-                            k++;
-                            d++;
 
+                            n++;
+                            p++;
+                            } 
+                        else if(p>=35 && p<40){
+                            doc7[o] = line;
+
+                            o++;
+                            p++;
+                            } 
+                        else if(p>=40&&p<45){
+                            doc8[q] = line;
+
+                            q++;
+                            p++;
+                            } 
+                        else if(p>=45 && p<50){
+                            doc9[r] = line;
+
+                            r++;
+                            p++;
+                            }
+                        else if(p>=50 && p<55) {
+
+                            doc10[s] = line;
+                            s++;
+                            p++;    
+                        } 
+                        else if(p>=55 && p<60) {
+
+                            doc10[t] = line;
+                            t++;
+                            p++;    
+                        } 
+                        else{
+                            if(p==60) break;
+                            doc[p] = line;                      
+                            p++;
                         }
-                        else if(d>=30&&d<=35){
-                            return null;
-
-                        }
 
 
-                        else {
-                            doc[d] = line;
-                            d++;
-                        }
-                    }
-            
+
+                    }                  
+                  
                 }
             }
-                    
+
+          
             reader.close();
-        }        
-                
+
             
 
-
-         catch (FileNotFoundException e) {
+         
+        } catch (FileNotFoundException e) {
             System.err.println("File not found: " + e.getMessage());
         } catch (IOException e) {
             System.err.println("Error reading the file: " + e.getMessage());
@@ -310,6 +339,46 @@ public static String[] doc11 = new String[5];
        
                 }
 
+        public static String[] getPatientMessagenext5() {
+               
+                getPatientMessage();
+                
+                    return patient6;
+       
+                }
+        public static String[] getPatientMessagenext6() {
+               
+                getPatientMessage();
+                
+                    return patient7;
+       
+                }
+        public static String[] getPatientMessagenext7() {
+               
+                getPatientMessage();
+                
+                    return patient8;
+       
+                }
+        public static String[] getPatientMessagenext8() {
+               
+                getPatientMessage();
+                
+                    return patient9;
+       
+                }
+
+        public static String[] getPatientMessagenext9() {
+               
+                getPatientMessage();
+                
+                    return patient10;
+       
+                }
+
+
+
+
 
 
 
@@ -331,7 +400,7 @@ public static String[] doc11 = new String[5];
 
 
         String result []  = patient10;
-        printarr(patient10);
+        printarr(doc10);
                 }
 
 }
