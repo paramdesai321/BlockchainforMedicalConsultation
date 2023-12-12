@@ -335,6 +335,42 @@ public  static String[] getDoctorMessage() {
 
         return doc;
     }
+
+   public static void Doctor2Message() {
+        String line;
+        char firstChar;
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("CAR0002.txt"));
+            int d = 0, a = 0, b = 0;
+
+            while ((line = reader.readLine()) != null) {
+                if (!line.isEmpty()) {
+                    firstChar = line.charAt(0);
+
+                    if (firstChar == 'D') {
+                        if (d >= 5 && d < 10) {
+                            doc13[a] = line;
+                            a++;
+                            d++;
+                        } else if (d >= 10 && d < 15) {
+                            doc14[b] = line;
+                            b++;
+                            d++;
+                        } else {
+                            if (d == 15) break;
+                            doc12[d] = line;
+                            d++;
+                        }
+                    }
+                }
+            }
+            reader.close();
+        } catch (FileNotFoundException e) {
+            System.err.println("File not found: " + e.getMessage());
+        } catch (IOException e) {
+            System.err.println("Error reading the file: " + e.getMessage());
+        }
+    }
     
    public static String[] getDoctorMessagenext() {
 	   
@@ -489,11 +525,10 @@ public  static String[] getDoctorMessage() {
         // Example usage
        getDoctorMessage (); 
        getPatientMessage();
+       Doctor2Message();
+        printarr(doc12);
 
-
-        String result []  = patient14;
-        printarr(patient12);
-           }
+     }
 
 }
 
