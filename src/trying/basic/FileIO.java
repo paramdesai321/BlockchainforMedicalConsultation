@@ -20,6 +20,10 @@ public static String[]  patient3 = new String[5];
 public static String[] patient4 = new String[5];
 public static String[] patient5 = new String[5];
 public static String[] patient6 = new String[5];
+public static String[] patient7 = new String[5];
+public static String[] patient8 = new String[5];
+public static String[] patient9 = new String[5];
+public static String[] patient10 = new String[5];
 
 public static String[] doc = new String[5];
 public static String[] doc1 = new String[5];
@@ -47,7 +51,7 @@ public static String[] doc11 = new String[5];
             char firstChar;
 
     
-            int p=0, i=0, j=0, k=0, l=0, m=0, n=0, o=0, q=0, r=0, s=0;
+            int p=0, i=0, j=0, k=0, l=0, m=0, n=0, o=0, q=0, r=0, s=0,t=0,u=0,v=0;
 
 
             while ((line = reader.readLine()) != null) {
@@ -59,13 +63,13 @@ public static String[] doc11 = new String[5];
                     if (firstChar == 'P') {
                     	
                         if (p >= 5 && p<10) {
-                            if (p == 10) break;
+                          //  if (p == 10) break;
                             patient1[i] = line;
                             i++;
                             p++;
                         }
                         else if(p>=10 && p<15) {
-                        	if(p==15) break;
+                        	//if(p==15) break;
                         	patient2[j] = line;                        	
                         	j++;
                         	p++;
@@ -96,10 +100,39 @@ public static String[] doc11 = new String[5];
 
                             n++;
                             p++;
-                            }                       
+                            } 
+                        else if(p>=35 && p<40){
+                            patient7[o] = line;
 
+                            o++;
+                            p++;
+                            } 
+                        else if(p>=40&&p<45){
+                            patient8[q] = line;
+
+                            q++;
+                            p++;
+                            } 
+                        else if(p>=45 && p<50){
+                            patient9[r] = line;
+
+                            r++;
+                            p++;
+                            }
+                        else if(p>=50 && p<55) {
+
+                            patient10[s] = line;
+                            s++;
+                            p++;    
+                        } 
+                        else if(p>=55 && p<60) {
+
+                            patient10[t] = line;
+                            t++;
+                            p++;    
+                        } 
                         else{
-                            if(p== 35) break;
+                            if(p==60) break;
                             patient[p] = line;                      
                             p++;
                         }
@@ -297,8 +330,8 @@ public static String[] doc11 = new String[5];
        getPatientMessage();
 
 
-        String result []  = patient5;
-        printarr(patient5);
+        String result []  = patient10;
+        printarr(patient10);
                 }
 
 }
