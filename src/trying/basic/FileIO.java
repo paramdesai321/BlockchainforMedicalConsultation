@@ -24,6 +24,11 @@ public static String[] patient7 = new String[5];
 public static String[] patient8 = new String[5];
 public static String[] patient9 = new String[5];
 public static String[] patient10 = new String[5];
+public static String[] patient11 = new String[5];
+public static String[] patient12 = new String[5];
+public static String[] patient13 = new String[5];
+public static String[] patient14 = new String[5];
+
 
 public static String[] doc = new String[5];
 public static String[] doc1 = new String[5];
@@ -37,10 +42,13 @@ public static String[] doc8 = new String[5];
 public static String[] doc9 = new String[5];
 public static String[] doc10 = new String[5];
 public static String[] doc11 = new String[5];
+public static String[] doc12 = new String[5];
+public static String[] doc13 = new String[5];
+public static String[] doc14 = new String[5];
 
 
-    
-    public  static String[] getPatientMessage() {
+
+public  static String[] getPatientMessage() {
       
         try {
             BufferedReader reader = new BufferedReader(new FileReader("CAR0001.txt"));
@@ -51,7 +59,7 @@ public static String[] doc11 = new String[5];
             char firstChar;
 
     
-            int p=0, i=0, j=0, k=0, l=0, m=0, n=0, o=0, q=0, r=0, s=0,t=0,u=0,v=0;
+            int p=0, i=0, j=0, k=0, l=0, m=0, n=0, o=0, q=0, r=0, s=0,t=0,u=0,v=0,w=0,x=0,y=0,z=0;
 
 
             while ((line = reader.readLine()) != null) {
@@ -61,7 +69,7 @@ public static String[] doc11 = new String[5];
                     
                     
                     if (firstChar == 'P') {
-                    	
+                        
                         if (p >= 5 && p<10) {
                           //  if (p == 10) break;
                             patient1[i] = line;
@@ -69,10 +77,10 @@ public static String[] doc11 = new String[5];
                             p++;
                         }
                         else if(p>=10 && p<15) {
-                        	//if(p==15) break;
-                        	patient2[j] = line;                        	
-                        	j++;
-                        	p++;
+                            //if(p==15) break;
+                            patient2[j] = line;                         
+                            j++;
+                            p++;
                         }
                         else if (p>= 15 && p<20){
                            
@@ -131,8 +139,32 @@ public static String[] doc11 = new String[5];
                             t++;
                             p++;    
                         } 
+                        else if(p>=60 && p<65) {
+
+                            patient11[w] = line;
+                            w++;
+                            p++;    
+                        } 
+                        else if(p>=65 && p<70) {
+
+                            patient12[x] = line;
+                            x++;
+                            p++;    
+                        } 
+                        else if(p>=70 && p<75) {
+
+                            patient13[y] = line;
+                            y++;
+                            p++;    
+                        } 
+                        else if(p>=75 && p<80) {
+
+                            patient14[z] = line;
+                            z++;
+                            p++;    
+                        } 
                         else{
-                            if(p==60) break;
+                            if(p==80) break;
                             patient[p] = line;                      
                             p++;
                         }
@@ -159,7 +191,6 @@ public static String[] doc11 = new String[5];
         return patient;
     }
     
-    
 
 
 public  static String[] getDoctorMessage() {
@@ -173,7 +204,7 @@ public  static String[] getDoctorMessage() {
             char firstChar;
 
     
-            int p=0, i=0, j=0, k=0, l=0, m=0, n=0, o=0, q=0, r=0, s=0,t=0,u=0,v=0;
+            int p=0, i=0, j=0, k=0, l=0, m=0, n=0, o=0, q=0, r=0, s=0,t=0,u=0,v=0,w=0,x=0,y=0,z=0;
 
 
             while ((line = reader.readLine()) != null) {
@@ -253,8 +284,32 @@ public  static String[] getDoctorMessage() {
                             t++;
                             p++;    
                         } 
+                        else if(p>=60 && p<65) {
+
+                            doc11[w] = line;
+                            w++;
+                            p++;    
+                        } 
+                        else if(p>=65 && p<70) {
+
+                            doc12[x] = line;
+                            x++;
+                            p++;    
+                        } 
+                        else if(p>=70 && p<75) {
+
+                            doc13[y] = line;
+                            y++;
+                            p++;    
+                        } 
+                        else if(p>=75 && p<80) {
+
+                            doc14[z] = line;
+                            z++;
+                            p++;    
+                        } 
                         else{
-                            if(p==60) break;
+                            if(p==80) break;
                             doc[p] = line;                      
                             p++;
                         }
@@ -336,6 +391,14 @@ public  static String[] getDoctorMessage() {
                 getDoctorMessage();
                 return doc10;
             }
+
+         public static String[] getDoctorMessagenext10(){
+
+                getDoctorMessage();
+                return doc11;
+            }
+
+
         public static String[] getPatientMessagenext() {
        
         getPatientMessage();
@@ -403,22 +466,15 @@ public  static String[] getDoctorMessage() {
                 
                     return patient9;
        
-                }
 
-        public static String[] getPatientMessagenext9() {
+            }
+    public static String[] getPatientMessagenext9() {
                
                 getPatientMessage();
                 
                     return patient10;
        
-                }   
-
-
-
-
-
-
-
+            }   
 
 
     public static void printarr(String[] arr){
@@ -429,17 +485,15 @@ public  static String[] getDoctorMessage() {
 
     }
 
-
-
     public static void main(String[] args) {
         // Example usage
        getDoctorMessage (); 
        getPatientMessage();
 
 
-        String result []  = patient10;
-        printarr(doc10);
-                }
+        String result []  = patient14;
+        printarr(patient12);
+           }
 
 }
 
