@@ -12,18 +12,28 @@ import java.util.Objects;
 public class FileIO {
  
            // 10 more if statments by tommorrow
-    public static String[] doc = new String[5];
-    public static String[] patient = new String[5];
-    public static  String[] patient1 = new String[5];
-    public static  String[] patient2 = new String[5];
-    public static String[]  patient3 = new String[5];
-    public static String[] patient4 = new String[5];
-    public static String[] patient5 = new String[5];
+   
+public static String[] patient = new String[5];
+public static  String[] patient1 = new String[5];
+public static  String[] patient2 = new String[5];
+public static String[]  patient3 = new String[5];
+public static String[] patient4 = new String[5];
+public static String[] patient5 = new String[5];
+public static String[] patient6 = new String[5];
 
-    public static String[] doc1 = new String[5];
-    public static String[] doc2 = new String[5];
-    
-    public static String[] doc3 = new String[5];
+public static String[] doc = new String[5];
+public static String[] doc1 = new String[5];
+public static String[] doc2 = new String[5];
+public static String[] doc3 = new String[5];
+public static String[] doc4 = new String[5];
+public static String[] doc5 = new String[5];
+public static String[] doc6 = new String[5];
+public static String[] doc7 = new String[5];
+public static String[] doc8 = new String[5];
+public static String[] doc9 = new String[5];
+public static String[] doc10 = new String[5];
+public static String[] doc11 = new String[5];
+
 
     
     public  static String[] getPatientMessage() {
@@ -37,12 +47,8 @@ public class FileIO {
             char firstChar;
 
     
-            int p = 0;
-            int i=0;
-            int j=0;
-            int k=0;
-            int l = 0;
-            int m = 0;
+            int p=0, i=0, j=0, k=0, l=0, m=0, n=0, o=0, q=0, r=0, s=0;
+
 
             while ((line = reader.readLine()) != null) {
                 if (!line.isEmpty()) {
@@ -85,9 +91,15 @@ public class FileIO {
                            p++;  
 
                         }
+                        else if(p>=30 && p<35){
+                            patient6[n] = line;
 
-                        else {
-                            if(p== 30) break;
+                            n++;
+                            p++;
+                            }                       
+
+                        else{
+                            if(p== 35) break;
                             patient[p] = line;                      
                             p++;
                         }
@@ -127,10 +139,7 @@ public class FileIO {
             String line;
             char firstChar;
 
-            int d = 0;
-            int i=0;
-            int j=0;
-            int k=0;
+          int d=0, i=0, j=0, k=0, l=0, m=0, n=0, o=0, p=0, q=0;
          
 
             while ((line = reader.readLine()) != null) {
@@ -159,6 +168,33 @@ public class FileIO {
                             d++;
 
                         }
+                         else if(d>=15&&d<=20){
+                            
+                            doc4[k] = line;
+                            k++;
+                            d++;
+
+                        }
+                        else if(d>=20&&d<=25){
+                            
+                            doc5[k] = line;
+                            k++;
+                            d++;
+
+                        }
+                        else if(d>=25&&d<=30){
+                            
+                            doc6[n] = line;
+                            k++;
+                            d++;
+
+                        }
+                        else if(d>=30&&d<=35){
+                            return null;
+
+                        }
+
+
                         else {
                             doc[d] = line;
                             d++;
