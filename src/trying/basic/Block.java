@@ -141,16 +141,47 @@ public class Block {
 
   
     Block Block5 = new Block(Block4.BlockHash, FileIO.getPatientMessagenext1());
-    blockchain.add(Block4);
+    blockchain.add(Block5);
     PrintBlockchain(Block5);
 
-    Block Block6 = new Block(Block4.BlockHash, FileIO.getDoctorMessagenext2());
+    Block Block6 = new Block(Block5.BlockHash, FileIO.getDoctorMessagenext2());
     blockchain.add(Block6);
     PrintBlockchain(Block6);
 
-    Block Block7 = new Block(Block4.BlockHash, FileIO.getPatientMessagenext2());
+    Block Block7 = new Block(Block6.BlockHash, FileIO.getPatientMessagenext2());
     blockchain.add(Block7);
     PrintBlockchain(Block7);
+
+    Block Block8 = new Block(Block7.BlockHash, FileIO.getDoctorMessagenext3());
+    blockchain.add(Block8);
+    PrintBlockchain(Block8);
+
+    Block Block9 = new Block(Block8.BlockHash, FileIO.getPatientMessagenext3());
+    blockchain.add(Block9);
+    PrintBlockchain(Block9);
+
+     Block Block10 = new Block(Block9.BlockHash, FileIO.getDoctorMessagenext4());
+    blockchain.add(Block10);
+    PrintBlockchain(Block10);
+
+     Block Block11 = new Block(Block10.BlockHash, FileIO.getPatientMessagenext4());
+    blockchain.add(Block11);
+    PrintBlockchain(Block11);
+
+    Block Block12 = new Block(Block11.BlockHash, FileIO.getDoctorMessagenext5());
+    blockchain.add(Block12);
+    PrintBlockchain(Block12);
+
+    Block Block13 = new Block(Block12.BlockHash, FileIO.getPatientMessagenext5());
+    blockchain.add(Block13);
+    PrintBlockchain(Block13);
+
+
+
+
+
+
+
 
 
 
