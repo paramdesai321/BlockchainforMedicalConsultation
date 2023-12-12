@@ -208,6 +208,53 @@ public class Block {
     blockchain.add(Block21);
     PrintBlockchain(Block21);
 
+    Block Block22 = new Block(Block21.BlockHash, FileIO.getDoctorMessagenext10());
+    blockchain.add(Block22);
+    PrintBlockchain(Block22);
+
+    Block Block23 = new Block(Block22.BlockHash, FileIO.getPatientMessagenext10());
+    blockchain.add(Block23);
+    PrintBlockchain(Block23);
+    System.out.println("<--NOTE:The last 4 message fields of the last 2 blocks were null because the conversation was ended-->\n");
+    System.out.println("<--Further Blocks will contain data from a different conversation stored in file CAR002.txt-->\n");
+
+    Block Block24 = new Block(Block23.BlockHash, FileIO.getDoctorMessagenext11());
+    blockchain.add(Block24); 
+    PrintBlockchain(Block24);
+
+    Block Block25 = new Block(Block24.BlockHash, FileIO.getPatientMessagenext11());
+    blockchain.add(Block25);
+    PrintBlockchain(Block25);
+
+
+    Block Block26 = new Block(Block25.BlockHash, FileIO.getDoctorMessagenext12());
+    blockchain.add(Block26);
+    PrintBlockchain(Block26);
+
+    Block Block27 = new Block(Block26.BlockHash, FileIO.getPatientMessagenext12());
+    blockchain.add(Block27);
+    PrintBlockchain(Block27);
+
+    Block Block28 = new Block(Block27.BlockHash, FileIO.getDoctorMessagenext12());
+    blockchain.add(Block28);
+    PrintBlockchain(Block28);
+
+    Block Block29 = new Block(Block28.BlockHash, FileIO.getDoctorMessagenext13());
+    blockchain.add(Block29);
+    PrintBlockchain(Block29);
+
+    Block Block30 = new Block(Block29.BlockHash, FileIO.getPatientMessagenext13());
+    blockchain.add(Block30);
+    PrintBlockchain(Block30);
+
+
+
+
+
+
+
+
+
 
 
 

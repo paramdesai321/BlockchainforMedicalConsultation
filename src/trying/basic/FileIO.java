@@ -470,17 +470,18 @@ public  static String[] getDoctorMessage() {
             }
         public static String[] getDoctorMessagenext11(){
 
-                getDoctorMessage();
+                Doctor2Message();
                 return doc12;
+            }
+        public static String[] getDoctorMessagenext12(){
+
+                
+                Doctor2Message();
+                return doc13;
             }
         public static String[] getDoctorMessagenext13(){
 
-                getDoctorMessage();
-                return doc13;
-            }
-        public static String[] getDoctorMessagenext14(){
-
-                getDoctorMessage();
+                Doctor2Message();
                 return doc14;
             }
 
@@ -571,14 +572,14 @@ public  static String[] getDoctorMessage() {
             }
          public static String[] getPatientMessagenext11() {
                
-                getPatientMessage();
+                Patient2Message();
                 
                     return patient12;
        
             }   
          public static String[] getPatientMessagenext12() {
                
-                getPatientMessage();
+                Patient2Message();
                 
                     return patient13;
        
@@ -586,7 +587,7 @@ public  static String[] getDoctorMessage() {
 
          public static String[] getPatientMessagenext13() {
                
-                getPatientMessage();
+                Patient2Message();
                 
                     return patient14;
        
