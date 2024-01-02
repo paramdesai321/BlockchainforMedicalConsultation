@@ -9,6 +9,7 @@ Eack Blocks Contain:
 2. Data
    ![image](https://github.com/paramdesai321/BlockchainforMedicalConsultation/assets/123131116/2d2eba81-c036-4443-ba89-612a2ef8aa12)
    Fig: Blocks in the blockchain
+   
 **Encrypting Algorithms**
 We have used a hex mixture of ECDSA(Elliptical Curve Digital Signature Algorithm) and SHA-256.
 --> We are using secpr256r1 Elliptical curve, which uses mathematical two point sum method to generate large prime numbers.
