@@ -14,7 +14,6 @@ Eack Blocks Contain:
 We have used a hex mixture of ECDSA(Elliptical Curve Digital Signature Algorithm) and SHA-256.
 --> We are using secpr256r1 Elliptical curve, which uses mathematical two point sum method to generate large prime numbers.
     
- 
 
 **Comparsions with RSA**: After our research and testing we found that ECDSA is has 1/4th of the hash value as RSA, and is almost 3 times faster and more randomized.
 

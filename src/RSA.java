@@ -77,6 +77,8 @@ public class RSA {
     public static void main(String[] args) {
         RSA rsa = new RSA();
 
+        System.out.println("<--This class has the code of our comaparison algorithm RSA-->\n");
+
        
         rsa.generateKeyPair(2048);
         String[] arr = FileIO.getPatientMessage();
@@ -84,7 +86,7 @@ public class RSA {
         Block(arr[1]);
         Block(arr[2]);
         Block(arr[3]);    
-            Block(arr[4]);
+        Block(arr[4]);
   
 
 

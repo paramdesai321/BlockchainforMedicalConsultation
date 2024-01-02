@@ -245,40 +245,7 @@ public class Block {
 
     Block Block30 = new Block(Block29.BlockHash, FileIO.getPatientMessagenext13());
     blockchain.add(Block30);
-    PrintBlockchain(Block30);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-     
-
-
-      
+    PrintBlockchain(Block30);  
     
     
 }

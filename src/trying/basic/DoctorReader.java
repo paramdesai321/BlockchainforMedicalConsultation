@@ -47,6 +47,7 @@ public class DoctorReader {
         return docs;
     }
 
+    
     public static void main(String[] args) {
         String[][] result = getDoctorMessages();
 

@@ -46,25 +46,34 @@ public class PatientReader {
 
         return patient;
     }
-    public String[] getPatientArray(int index) {
+    public static String[] getPatientArray(int index) {
+    	getPatientMessages();
         if (index >= 0 && index < patient.length) {
-            return patient[index];
+                   return patient[index];
         }
         return null; // or handle the out-of-bounds case appropriately
     }
 
-   public String[] getPatientArray1() {
-        return getPatientArray(0);
-    }
+
+
+
+   public static String[] getPatientArray1() {
+   	getPatientMessages();
+
+   		return patient[1];
+            }
 
     public String[] getPatientArray2() {
-        return getPatientArray(1);
+        	getPatientMessages();
+        	return patient[2];
+
     }
 
 
 
     public static void main(String[] args) {
-        String[][] result = getPatientMessages();
+        
+           String result[][] = getPatientMessages();
 
         // Do something with the result if needed
         for (String[] PatientArray : result) {
@@ -74,5 +83,6 @@ public class PatientReader {
                 }
             }
         }
+        
     }
 }
