@@ -11,8 +11,8 @@ Eack Blocks Contain:
    Fig: Blocks in the blockchain
    
 **Encrypting Algorithms**
-We have used a hex mixture of ECDSA(Elliptical Curve Digital Signature Algorithm) and SHA-256.
---> We are using secpr256r1 Elliptical curve, which uses mathematical two point sum method to generate large prime numbers.
+<P>We have used a hex mixture of ECDSA(Elliptical Curve Digital Signature Algorithm) and SHA-256.
+--> We are using secpr256r1 Elliptical curve, which uses mathematical two point sum method to generate large prime numbers.</P>
 
 **Dataset**
 -This is dataset is based on a paper published in the National Library of Medicine: A dataset of simulated patient-physician medical interviews with a focus on respiratory cases(https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9203765/)
