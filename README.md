@@ -53,3 +53,12 @@ Decrypted message: P: Sure, I'm I'm just having a lot of chest pain and and so I
 
 **Comparsions with RSA**: After our research and testing we found that ECDSA is has 1/4th of the hash value as RSA, and is almost 3 times faster and more randomized.
 
+## Getting Started
+
+1. Clone the repository ```git clone https://github.com/paramdesai321/BlockchainforMedicalConsultation.git```
+2. Running the code: 
+   ```git 
+     cd src/
+     javac Block.java
+     java Block 
+   ```  
