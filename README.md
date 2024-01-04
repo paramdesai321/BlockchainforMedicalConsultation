@@ -56,7 +56,23 @@ Decrypted message: P: Sure, I'm I'm just having a lot of chest pain and and so I
 ## Getting Started
 
 1. Clone the repository ```git clone https://github.com/paramdesai321/BlockchainforMedicalConsultation.git```
-2. Running the code: 
+2. Navigating the repository:
+   _______________________________________________________________________________________ 
+  |FileName                                             | Function                        |
+  _________________________________________________________________________________________ 
+  | Blockchain for Medical Consultation final slides.pdf| Detailed Overview of the Project|
+  |src/  ```cd src/```                                  | source code                     |
+  |ECDSADemo.java                                       | ECDSA code                      |
+  |Block.java                                           | Block and Blockchain code       |
+  |FileIO.java                                          | Fetches data from dataset       |
+  |RSA.java                                             | RSA code                        |
+  |ConsultationBooking.sol                              | Smart contract b/w patient & doc|
+  |CAR001.txt                                           | Dataset File                    |
+  |CAR002.txt                                           | Dataset File                    | 
+  _________________________________________________________________________________________        
+
+
+3. Running the code: 
    ```git 
      cd src/
      javac Block.java
