@@ -57,19 +57,18 @@ Decrypted message: P: Sure, I'm I'm just having a lot of chest pain and and so I
 
 1. Clone the repository ```git clone https://github.com/paramdesai321/BlockchainforMedicalConsultation.git```
 2. Navigating the repository:
-   _______________________________________________________________________________________ 
-  |FileName                                             | Function                        |
-  _________________________________________________________________________________________ 
-  | Blockchain for Medical Consultation final slides.pdf| Detailed Overview of the Project|
-  |src/  ```cd src/```                                  | source code                     |
-  |ECDSADemo.java                                       | ECDSA code                      |
-  |Block.java                                           | Block and Blockchain code       |
-  |FileIO.java                                          | Fetches data from dataset       |
-  |RSA.java                                             | RSA code                        |
-  |ConsultationBooking.sol                              | Smart contract b/w patient & doc|
-  |CAR001.txt                                           | Dataset File                    |
-  |CAR002.txt                                           | Dataset File                    | 
-  _________________________________________________________________________________________        
+| FileName                                              | Function                         |
+| ----------------------------------------------------- | -------------------------------- |
+| Blockchain for Medical Consultation final slides.pdf  | Detailed Overview of the Project |
+| src/  ```cd src/```                                   | Source code                      |
+| ECDSADemo.java                                        | ECDSA code                       |
+| Block.java                                            | Block and Blockchain code        |
+| FileIO.java                                           | Fetches data from dataset        |
+| RSA.java                                              | RSA code                         |
+| ConsultationBooking.sol                               | Smart contract between patient & doctor |
+| CAR001.txt                                            | Dataset File                     |
+| CAR002.txt                                            | Dataset File                     |
+
 
 
 3. Running the code: 
