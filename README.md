@@ -3,18 +3,18 @@
 This is a Reaserch Project for COMP 282: Advanced Data Structures under Dr Wen-Chin Hsu. We are using Blockchain techonology to make medical consultation and data secure than ever. We are using various cryptographic algorithms like SHA256,SHA26d and Elliptical Curve Digital Signature Algorithm to protect confidential and private data.
 Not only that but also we're using Ethereum Smart contracts made using solidity to ensure a secure and impartial liason between parties(blocks) of the Decenterlized System.
 ## Overview of the Project
-**Blocks**
+### Blocks
 <P>Eack Blocks Contain:
 1. Previous Hash
 2. Data: our each block contains 5 messages from either party
    ![image](https://github.com/paramdesai321/BlockchainforMedicalConsultation/assets/123131116/2d2eba81-c036-4443-ba89-612a2ef8aa12)
    Fig: Blocks in the blockchain</P>
    
-**Encrypting Algorithms**
+### Encrypting Algorithms
 <P>We have used a hex mixture of ECDSA(Elliptical Curve Digital Signature Algorithm) and SHA-256.
 --> We are using secpr256r1 Elliptical curve, which uses mathematical two point sum method to generate large prime numbers.</P>
 
-**Dataset**
+### Dataset
 <P>-This is dataset is based on a paper published in the National Library of Medicine: A dataset of simulated patient-physician medical interviews with a focus on respiratory cases(https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9203765/)
 -The Dataset was made by the students and researchers of Western University and Waterloo University in Canada.</P>
 
