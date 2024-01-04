@@ -14,13 +14,13 @@ Eack Blocks Contain:
 We have used a hex mixture of ECDSA(Elliptical Curve Digital Signature Algorithm) and SHA-256.
 --> We are using secpr256r1 Elliptical curve, which uses mathematical two point sum method to generate large prime numbers.
 
-
 **Dataset**
 -This is dataset is based on a paper published in the National Library of Medicine: A dataset of simulated patient-physician medical interviews with a focus on respiratory cases(https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9203765/)
 -The Dataset was made by the students and researchers of Western University and Waterloo University in Canada.
 
 **Results of Blockchain using ECDSA**
-NOTE: Block #0 secures the first five messages of doctor and has a pointer to null
+
+_NOTE: Block #0 secures the first five messages of doctor and has a pointer to null_
 Block #:0
 Block Hash: 3041020100301306072A8648CE3D020106082A8648CE3D030107042730250201010420A98352EE0F53C6CA119258A0D34FB9D9604FB2BAE1A0E3D15A2EF93FBABADB54
 Previous Hash: null
@@ -32,7 +32,7 @@ D: OK, and where is this pain located?
 D: OK, and, so how long has it been going on for then if it started last night?
 Block Verification: true
 
-NOTE: Block #1 secures the first five messages of patient and has a pointer to Block #0
+_NOTE: Block #1 secures the first five messages of patient and has a pointer to Block #0_
 Block #:1
 Block Hash: 3041020100301306072A8648CE3D020106082A8648CE3D030107042730250201010420BCE76CCCA346D9A2B0505921D94C4CD7A167F65F30E0101E677701563CA93A3B
 Previous Hash: 3041020100301306072A8648CE3D020106082A8648CE3D030107042730250201010420A98352EE0F53C6CA119258A0D34FB9D9604FB2BAE1A0E3D15A2EF93FBABADB54
