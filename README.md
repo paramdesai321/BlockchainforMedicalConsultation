@@ -79,6 +79,6 @@ Decrypted message: P: Sure, I'm I'm just having a lot of chest pain and and so I
      java Block 
    ```
 ## License
-This Project is licensed under the MIT license.
+This Project is licensed under the [MIT License](https://github.com/paramdesai321/BlockchainforMedicalConsultation/blob/main/LICENSE.txt)
    
 
